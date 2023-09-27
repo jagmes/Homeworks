@@ -3,17 +3,28 @@
 package com.jagmes;
 
 import java.io.Console;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        int[] array = new int [50];
+        Random random = new Random();
+
         Scanner insert = new Scanner(System.in);
         System.out.println("Вас приветстует калькулятор Т-1000.");
-        System.out.println("Вы хотите воспользоваться калькулятором? 1-д, 2-н");
+        System.out.println("Калькулятор - 1 , 2- рандомайзер");
          int ans = insert.nextInt();
         if (ans == 1) {
-            System.out.println("Введите первое целое число.");
+            //Калькулятор
+            while(true){
+                System.out.println("\n-----Выход: q-------");
+                // На будущее...
+               // if("q".equals(insert)){
+                //    System.exit(0); //Выход при нажатии q
+               // }
+            System.out.println("\nВведите первое целое число.");
             int x = insert.nextInt();
             System.out.println("Введите второе целое число.");
             int y = insert.nextInt();
@@ -39,9 +50,50 @@ public class Main {
                 default:
                     return;
             }
+            }
         }
+
         else  {
-            System.exit(0);
+            // рандомайзер
+            int neg = 0;
+            int pos =0;
+            int x=0;
+            int sum = 0;
+            int aver =0;
+            System.out.println("Заполнили массив случайными числами:");
+            for( int i=0; i <array.length-1; i++) {
+
+              array[i] = random.nextInt(101)-50;
+
+              System.out.print(array[i] + ";  " );
+              if (array[i]<0){
+                  neg += 1;
+              }
+
+              if (array[i]>0){
+                  pos += 1;
+              }
+              if(array[i]==0){
+                  x +=1;
+              }
+
+              sum += array[i];
+
+                aver = sum/array[i];
+            }
+            System.out.println("\nКоличество отрицательных элементов: "+neg);
+
+
+            System.out.println("Количество положительных элементов: " +pos);
+
+
+            System.out.println("Количество нулей: "+x);
+
+            System.out.println("Среднее по массиву:  " +aver);
+
+
+
+
         }
 
 
