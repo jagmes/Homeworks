@@ -78,8 +78,9 @@ public class Main {
               }
 
               sum += array[i];
-
-                aver = sum/array[i];
+               // обход ошибки с делением на ноль.
+                if(sum!=0){
+                aver = sum/array[i];}
             }
             System.out.println("\nКоличество отрицательных элементов: "+neg);
 
