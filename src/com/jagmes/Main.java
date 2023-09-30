@@ -2,13 +2,38 @@
 
 package com.jagmes;
 
-import java.io.Console;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
+    //функция суммы
+
+    static void sumRes(int a,int b){
+        int s= a+b;
+        System.out.println("результат сложения: "+s);
+
+    }
+            //функция разность
+    static void diff(int a, int b){
+        int d= a-b;
+        System.out.println("Результат вычетания: "+d);
+    }
+           // функция умножения
+    static void multiply(int a, int b){
+        int m=a*b;
+        System.out.println(":результат умножения: "+m);
+    }
+        // функция деления
+    static void division(int a, int b){
+        int div = a/b;
+        System.out.println("результат деления: " +div);
+    }
+
     public static void main(String[] args) {
+
+
+
         int[] array = new int [50];
         Random random = new Random();
 
@@ -19,33 +44,31 @@ public class Main {
         if (ans == 1) {
             //Калькулятор
             while(true){
-                System.out.println("\n-----Выход: q-------");
-                // На будущее...
-               // if("q".equals(insert)){
-                //    System.exit(0); //Выход при нажатии q
-               // }
+               System.out.println("\n------------");
+
             System.out.println("\nВведите первое целое число.");
-            int x = insert.nextInt();
+            int a = insert.nextInt();
             System.out.println("Введите второе целое число.");
-            int y = insert.nextInt();
+            int b = insert.nextInt();
             System.out.println("выберите операцию: 1: +, 2: -, 3: *, 4: /.");
             char operation = (char) insert.nextInt();
+
+
+
             switch (operation) {
                 case 1:
-                    int sum = x + y;
-                    System.out.printf("Сложение: %d + %d = %d", x, y, sum);
+                       sumRes(a,b);
+
+                  //  System.out.printf("Сложение: %d + %d = %d", x, y, );
                     break;
                 case 2:
-                    int z = x - y;
-                    System.out.printf(" Вычетание: %d - %d = %d", x, y, z);
+                  diff(a,b);
                     break;
                 case 3:
-                    int m = x * y;
-                    System.out.printf(" Умножение: %d * %d = %d", x, y, m);
+                   multiply(a,b);
                     break;
                 case 4:
-                    int d = x / y;
-                    System.out.printf(" Деление: %d / %d = %d", x, y, d);
+                   division(a,b);
                     break;
                 default:
                     return;
@@ -62,9 +85,7 @@ public class Main {
             int aver =0;
             System.out.println("Заполнили массив случайными числами:");
             for( int i=0; i <array.length-1; i++) {
-
               array[i] = random.nextInt(101)-50;
-
               System.out.print(array[i] + ";  " );
               if (array[i]<0){
                   neg += 1;
@@ -76,7 +97,6 @@ public class Main {
               if(array[i]==0){
                   x +=1;
               }
-
               sum += array[i];
                // обход ошибки с делением на ноль.
                 if(sum!=0){
@@ -84,26 +104,13 @@ public class Main {
             }
             System.out.println("\nКоличество отрицательных элементов: "+neg);
 
-
             System.out.println("Количество положительных элементов: " +pos);
-
 
             System.out.println("Количество нулей: "+x);
 
             System.out.println("Среднее по массиву:  " +aver);
 
-
-
-
         }
-
-
-
-
-
-
-
-
 
 
     }
